@@ -1,0 +1,54 @@
+import os
+import subprocess
+
+def create_directory(path):
+    """Create a directory if it does not exist."""
+    if not os.path.exists(path):
+        os.makedirs(path)
+
+def create_file(path, content=""):
+    """Create a file with initial content."""
+    with open(path, 'w') as file:
+        file.write(content)
+
+def git_commit(message):
+    """Commit changes to the git repository with a specific message."""
+    subprocess.run(['git', 'add', '.'], check=True)
+    subprocess.run(['git', 'commit', '-m', message], check=True)
+
+def main():
+    root = "LLM-Testing-Guide"
+    sections = [
+        "behavioral_testing",
+        "adversarial_testing",
+        "factual_correctness_testing",
+        "fairness_and_bias_testing",
+        "performance_testing",
+        "safety_and_security_testing",
+        "interpretability_and_explainability_testing",
+        "regression_testing",
+        "integration_testing",
+        "compliance_testing"
+    ]
+
+    # Create root directory
+    create_directory(root)
+    os.chdir(root)
+
+    # Create README.md in root
+    create_file('README.md', 'Welcome to the LLM Testing Guide Repository.\n')
+
+    # Commit the root README.md
+    git_commit('Initial commit with README.md')
+
+    # Create directories and files for each section
+    for section in sections:
+        create_directory(section)
+        create_file(f'{section}/README.md', f'# {section.replace("_", " ").title()}\n')
+        create_file(f'{section}/examples.md', f'## Examples for {section.replace("_", " ").title()}\n')
+        
+        # Commit the changes for each section
+        git_commit(f'Add {section} with initial files')
+
+if __name__ == "__main__":
+    main()
