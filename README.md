@@ -28,15 +28,3 @@ To use this guide:
 2. **Read the `README.md`** for an overview and detailed explanation of the testing focus in that category.
 3. **Explore the `examples.md`** for specific test scenarios, expected outcomes, and guidance on implementing the tests.
 
-## Contributing
-
-Contributions to enhance the testing methodologies or extend the example sets are welcome. Please refer to the `CONTRIBUTING.md` file for more details on how to submit contributions.
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
-
-## Acknowledgments
-
-Thanks to all contributors and the community for their insights and feedback that help improve this guide continuously.
-
